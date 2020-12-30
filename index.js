@@ -23,7 +23,7 @@ bot.start(async (ctx) => {
 bot.help((ctx) => ctx.reply('Только одна команда - /start, что тут сложного?'))
 bot.on('sticker', (ctx) => ctx.reply('крутой стикер, спасибо...'))
 bot.command('stop', (ctx) => {
-   clearInterval(this.starting)
+   clearInterval(bot.starting)
    ctx.reply('Хватит с тебя анекдотов...')
 })
 bot.on('message', (ctx) => ctx.reply('Это все круто... но ты подписался на рассылку?'))
