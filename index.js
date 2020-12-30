@@ -14,7 +14,7 @@ bot.start(async (ctx) => {
    const firstJoke = await parser()
    await ctx.reply(firstJoke.body)
    
-   setInterval(async ()=>{
+   const starting = setInterval(async ()=>{
       const joke = await parser()   
       await ctx.reply(joke.body)
    }, 60*60*1000)
@@ -23,7 +23,7 @@ bot.start(async (ctx) => {
 bot.help((ctx) => ctx.reply('Только одна команда - /start, что тут сложного?'))
 bot.on('sticker', (ctx) => ctx.reply('крутой стикер, спасибо...'))
 bot.command('stop', (ctx) => {
-   clearInterval()
+   clearInterval(this.starting)
    ctx.reply('Хватит с тебя анекдотов...')
 })
 bot.on('message', (ctx) => ctx.reply('Это все круто... но ты подписался на рассылку?'))
